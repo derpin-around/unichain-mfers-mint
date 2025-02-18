@@ -99,6 +99,10 @@ export default function Home() {
 		currencyMetadata.data && priceInWei !== null && priceInWei !== undefined
 			? Number(toTokens(priceInWei, currencyMetadata.data.decimals))
 			: null;
+			
+	const totalUnclaimedSupply = await getTotalUnclaimedSupply({
+	    contract,
+	});
 
 	return (
 		<NftMint
@@ -111,6 +115,7 @@ export default function Home() {
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
+			totalUnclaimedSupply={totalUnclaimedSupply}
 		/>
 	);
 }

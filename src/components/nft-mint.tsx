@@ -32,6 +32,7 @@ type Props = {
 	isERC1155: boolean;
 	isERC721: boolean;
 	tokenId: bigint;
+	totalUnclaimedSupply: bigint;
 };
 
 export function NftMint(props: Props) {
@@ -97,6 +98,9 @@ export function NftMint(props: Props) {
 					</h2>
 					<p className="text-gray-600 dark:text-gray-300 mb-4">
 						{props.description}
+					</p>
+					<p className="text-gray-300 dark:text-gray-300 mb-4 text-center">
+						({props.totalUnclaimedSupply} of 10,021 mints available)
 					</p>
 					<div className="flex items-center justify-between mb-4">
 						<div className="flex items-center">
