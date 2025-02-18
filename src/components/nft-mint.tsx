@@ -131,7 +131,7 @@ export function NftMint(props: Props) {
 							</Button>
 						</div>
 						<div className="text-base pr-1 font-semibold dark:text-white">
-							Total: {props.pricePerToken * quantity} {props.currencySymbol} ({.00042 * quantity} {props.currencySymbol} for mfers, tinyass unicorns, and based space punks holders)
+							total: {props.pricePerToken * quantity} {props.currencySymbol} ({.00042 * quantity} {props.currencySymbol} for mfers, tinyass unicorns, and based space punks holders)
 						</div>
 					</div>
 
@@ -145,7 +145,7 @@ export function NftMint(props: Props) {
 							htmlFor="custom-address"
 							className={`${useCustomAddress ? "" : "text-gray-400"} cursor-pointer`}
 						>
-							Mint to a custom address
+							mint to a custom address
 						</Label>
 					</div>
 					{useCustomAddress && (
@@ -197,13 +197,13 @@ export function NftMint(props: Props) {
 								width: "100%",
 							}}
 							disabled={isMinting}
-							onTransactionSent={() => toast.info("Minting NFT")}
+							onTransactionSent={() => toast.info("thank you mfer - minting now...")}
 							onTransactionConfirmed={() =>
-								toast.success("Minted successfully")
+								toast.success("minted!")
 							}
 							onError={(err) => toast.error(err.message)}
 						>
-							Mint {quantity} NFT{quantity > 1 ? "s" : ""}
+							mint {quantity} nft{quantity > 1 ? "s" : ""}
 						</ClaimButton>
 					) : (
 						<ConnectButton
@@ -215,7 +215,7 @@ export function NftMint(props: Props) {
 			</Card>
 			{true && (
 				<Toast className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-md">
-					Successfully minted {quantity} NFT{quantity > 1 ? "s" : ""}
+					successfully minted {quantity} nft{quantity > 1 ? "s" : ""}
 					{useCustomAddress && customAddress ? ` to ${customAddress}` : ""}!
 				</Toast>
 			)}
