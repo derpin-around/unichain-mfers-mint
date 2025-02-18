@@ -17,6 +17,7 @@ import {
 	getActiveClaimCondition as getActiveClaimCondition721,
 	isERC721,
 } from "thirdweb/extensions/erc721";
+import { getTotalUnclaimedSupply } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 
 // This page renders on the server
