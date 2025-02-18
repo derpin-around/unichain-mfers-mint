@@ -78,7 +78,7 @@ export default async function Home() {
 			})
 		: undefined;
 
-	const currencySymbol = currencyMetadata?.symbol || "";
+	const currencySymbol = toLowerCase(currencyMetadata?.symbol) || "";
 
 	const pricePerToken =
 		currencyMetadata && priceInWei
