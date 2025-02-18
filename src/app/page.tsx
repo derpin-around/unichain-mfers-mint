@@ -93,7 +93,7 @@ export default function Home() {
 		queryOptions: { enabled: !!currency },
 	});
 
-	const currencySymbol = toLowerCase(currencyMetadata.data?.symbol) || "";
+	const currencySymbol = currencyMetadata.data?.symbol.toLowerCase() || "";
 
 	const pricePerToken =
 		currencyMetadata.data && priceInWei !== null && priceInWei !== undefined
