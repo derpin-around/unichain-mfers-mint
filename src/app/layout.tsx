@@ -8,8 +8,8 @@ import { ToastProvider } from "@/components/ui/toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "NFT Minting template",
-	description: "A minting template powered by thirdweb",
+	title: "unichain mfers",
+	description: "cc0 mfers by sartoshi on unichain",
 };
 
 export default function RootLayout({
