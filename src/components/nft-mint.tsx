@@ -131,7 +131,7 @@ export function NftMint(props: Props) {
 							</Button>
 						</div>
 						<div className="text-base pr-1 font-semibold dark:text-white">
-							total: {props.pricePerToken * quantity} {props.currencySymbol} ({.00042 * quantity} {props.currencySymbol} for mfers, tinyass unicorns, and based space punks holders)
+							total: {props.pricePerToken * quantity} {toLowerCase(props.currencySymbol)} ({.00042 * quantity} {toLowerCase(props.currencySymbol)} for mfers, tinyass unicorns, and based space punks holders)
 						</div>
 					</div>
 
