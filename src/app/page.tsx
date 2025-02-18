@@ -100,7 +100,7 @@ export default function Home() {
 			? Number(toTokens(priceInWei, currencyMetadata.data.decimals))
 			: null;
 			
-	const totalUnclaimedSupply = await getTotalUnclaimedSupply({
+	const totalUnclaimedSupply = getTotalUnclaimedSupply({
 	    contract,
 	});
 
