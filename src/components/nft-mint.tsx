@@ -32,6 +32,7 @@ type Props = {
 	isERC1155: boolean;
 	isERC721: boolean;
 	tokenId: bigint;
+	claimedSupply: bigint;
 };
 
 export function NftMint(props: Props) {
