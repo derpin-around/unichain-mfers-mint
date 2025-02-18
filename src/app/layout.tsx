@@ -10,6 +10,21 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "unichain mfers",
 	description: "cc0 mfers by sartoshi on unichain",
+	openGraph: {
+		title: 'mint mfers on unichain',
+		description: "cc0 mfers by sartoshi on unichain",
+		url: "https://unichain-mfers-mint.vercel.app/",
+		siteName: "unichain mfers",
+		images: [
+		  {
+			url: "/opengraph-image.png",
+			width: 1200,
+			height: 630,
+			alt: "unichain mfers",
+		  },
+		],
+		type: "website",
+	},
 };
 
 export default function RootLayout({
