@@ -84,7 +84,7 @@ export function NftMint(props: Props) {
 						) : (
 							<MediaRenderer
 								client={client}
-								className="w-full h-full object-cover"
+								className="w-full h-full object-cover pt-16"
 								alt=""
 								src={
 									props.contractImage || "/placeholder.svg?height=400&width=400"
