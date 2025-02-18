@@ -19,7 +19,6 @@ import {
 	getActiveClaimCondition as getActiveClaimCondition721,
 	isERC721,
 } from "thirdweb/extensions/erc721";
-import { getTotalUnclaimedSupply } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 import { useReadContract } from "thirdweb/react";
 
@@ -100,10 +99,6 @@ export default function Home() {
 		currencyMetadata.data && priceInWei !== null && priceInWei !== undefined
 			? Number(toTokens(priceInWei, currencyMetadata.data.decimals))
 			: null;
-			
-	const totalUnclaimedSupply = getTotalUnclaimedSupply({
-	    contract,
-	});
 
 	return (
 		<NftMint
@@ -116,7 +111,6 @@ export default function Home() {
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
-			totalUnclaimedSupply={totalUnclaimedSupply}
 		/>
 	);
 }
