@@ -20,7 +20,7 @@ import {
 	isERC721,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
-import { useReadContract, useClaimedNFTSupply } from "thirdweb/react";
+import { useReadContract } from "thirdweb/react";
 
 // This page renders on the client.
 // If you are looking for a server-rendered version, checkout src/ssr/page.tsx
@@ -100,10 +100,6 @@ export default function Home() {
 			? Number(toTokens(priceInWei, currencyMetadata.data.decimals))
 			: null;
 
-	const claimedSupply = useClaimedNFTSupply(
-		contract,
-	);
-
 	return (
 		<NftMint
 			contract={contract}
@@ -115,7 +111,6 @@ export default function Home() {
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
-			claimedSupply={claimedSupply}
 		/>
 	);
 }
