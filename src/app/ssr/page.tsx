@@ -88,16 +88,6 @@ export default async function Home() {
 		currencyMetadata && priceInWei
 			? Number(toTokens(priceInWei, currencyMetadata.decimals))
 			: null;
-			
-	const { data: claimedSupply } =
-		useReadContract(getTotalClaimedSupply, {
-		  contract,
-	});
-	
-	const { data: unclaimedSupply } =
-		useReadContract(getTotalUnclaimedSupply, {
-		  contract,
-	});
 
 	return (
 		<NftMint
@@ -110,8 +100,8 @@ export default async function Home() {
 			isERC1155={!!isERC1155Query}
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
-			claimedSupply={claimedSupply || 0n}
-			unclaimedSupply={unclaimedSupply || 0n}
+			claimedSupply={0n}  // Pass default value or remove if not needed
+			unclaimedSupply={0n}
 		/>
 	);
 }
