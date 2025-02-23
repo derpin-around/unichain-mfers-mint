@@ -20,6 +20,7 @@ import {
 	getTotalUnclaimedSupply,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
+import { useReadContract } from "thirdweb/react";
 
 // This page renders on the server
 // If you are looking for a client-rendered version, checkout src/page.tsx
