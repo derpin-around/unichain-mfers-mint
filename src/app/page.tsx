@@ -123,8 +123,8 @@ export default function Home() {
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
-			claimedSupply={claimedSupply}
-			unclaimedSupply={unclaimedSupply}
+			claimedSupply={claimedSupply || 0n}
+			unclaimedSupply={unclaimedSupply || 0n}
 		/>
 	);
 }

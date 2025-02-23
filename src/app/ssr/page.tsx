@@ -109,8 +109,8 @@ export default async function Home() {
 			isERC1155={!!isERC1155Query}
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
-			claimedSupply={claimedSupply}
-			unclaimedSupply={unclaimedSupply}
+			claimedSupply={claimedSupply || 0n}
+			unclaimedSupply={unclaimedSupply || 0n}
 		/>
 	);
 }
