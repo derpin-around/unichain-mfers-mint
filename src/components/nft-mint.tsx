@@ -140,8 +140,8 @@ export function NftMint(props: Props) {
 						</div>
 					</div>
 					<div className="flex items-center justify-center mb-4 text-center w-full">
-						<div className="text-base font-semibold dark:text-white">
-							(<span style={{fontFamily: "monospace"}}>{.00042 * quantity} {props.currencySymbol}</span> for mfers, tinyass unicorns, and based space punks holders. feb. 17th snapshot)
+						<div className="text-base dark:text-white">
+							(<span style={{fontFamily: "monospace", fontWeight: "bold"}}>{.00042 * quantity} {props.currencySymbol}</span> for mfers, tinyass unicorns, and based space punks holders. feb. 17th snapshot)
 						</div>
 					</div>
 
@@ -153,7 +153,7 @@ export function NftMint(props: Props) {
 						/>
 						<Label
 							htmlFor="custom-address"
-							className={`${useCustomAddress ? "" : "text-gray-400"} cursor-pointer`}
+							className={`${useCustomAddress ? "" : "text-gray-500"} cursor-pointer`}
 						>
 							mint to a custom address
 						</Label>
