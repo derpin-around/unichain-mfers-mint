@@ -18,6 +18,8 @@ import { getCurrencyMetadata } from "thirdweb/extensions/erc20";
 import {
 	getActiveClaimCondition as getActiveClaimCondition721,
 	isERC721,
+	getTotalClaimedSupply,
+	getTotalUnclaimedSupply,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 import { useReadContract } from "thirdweb/react";
@@ -60,6 +62,16 @@ export default function Home() {
 	const claimCondition20 = useReadContract(getActiveClaimCondition20, {
 		contract,
 		queryOptions: { enabled: !isERC721Query.data && !isERC1155Query.data },
+	});
+	
+	const { data: claimedSupply } =
+		useReadContract(getTotalClaimedSupply, {
+		  contract,
+	});
+	
+	const { data: unclaimedSupply } =
+		useReadContract(getTotalUnclaimedSupply, {
+		  contract,
 	});
 
 	const displayName = isERC1155Query.data
@@ -111,6 +123,8 @@ export default function Home() {
 			isERC1155={!!isERC1155Query.data}
 			isERC721={!!isERC721Query.data}
 			tokenId={tokenId}
+			claimedSupply={claimedSupply}
+			unclaimedSupply={unclaimedSupply}
 		/>
 	);
 }

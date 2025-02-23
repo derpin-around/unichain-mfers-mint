@@ -16,6 +16,8 @@ import { getCurrencyMetadata } from "thirdweb/extensions/erc20";
 import {
 	getActiveClaimCondition as getActiveClaimCondition721,
 	isERC721,
+	getTotalClaimedSupply,
+	getTotalUnclaimedSupply,
 } from "thirdweb/extensions/erc721";
 import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/extensions/erc20";
 
@@ -23,6 +25,7 @@ import { getActiveClaimCondition as getActiveClaimCondition20 } from "thirdweb/e
 // If you are looking for a client-rendered version, checkout src/page.tsx
 export default async function Home() {
 	const tokenId = defaultTokenId;
+	
 	const chain = defineChain(defaultChainId);
 	const contract = getContract({
 		address: defaultNftContractAddress,
@@ -84,6 +87,16 @@ export default async function Home() {
 		currencyMetadata && priceInWei
 			? Number(toTokens(priceInWei, currencyMetadata.decimals))
 			: null;
+			
+	const { data: claimedSupply } =
+		useReadContract(getTotalClaimedSupply, {
+		  contract,
+	});
+	
+	const { data: unclaimedSupply } =
+		useReadContract(getTotalUnclaimedSupply, {
+		  contract,
+	});
 
 	return (
 		<NftMint
@@ -96,6 +109,8 @@ export default async function Home() {
 			isERC1155={!!isERC1155Query}
 			isERC721={!!isERC721Query}
 			tokenId={tokenId}
+			claimedSupply={claimedSupply}
+			unclaimedSupply={unclaimedSupply}
 		/>
 	);
 }

@@ -32,6 +32,8 @@ type Props = {
 	isERC1155: boolean;
 	isERC721: boolean;
 	tokenId: bigint;
+	claimedSupply: bigint;
+	unclaimedSupply: bigint;
 };
 
 export function NftMint(props: Props) {
@@ -92,14 +94,18 @@ export function NftMint(props: Props) {
 							/>
 						)}
 					</div>
-					<h2 className="text-2xl font-bold mb-2 dark:text-white">
+					<h2 className="text-2xl font-bold mb-2 dark:text-white text-center">
 						{props.displayName}
 					</h2>
-					<p className="text-gray-600 dark:text-gray-300 mb-4">
-						{props.description}
+					<p className="text-gray-600 dark:text-gray-300 mb-4 text-center">
+						{props.description}<br></br>
+						{props.unclaimedSupply !== undefined ? `(${props.unclaimedSupply.toLocaleString()} mints remaining)` : ""}
 					</p>
-					<div className="flex items-center justify-between mb-4">
-						<div className="flex items-center">
+					<p className="text-gray-600 dark:text-gray-300 mb-4 text-center">
+					<strong>how many mfers do you want?</strong>
+					</p>
+					<div className="flex items-center mb-4">
+						<div className="flex items-center justify-center w-full">
 							<Button
 								variant="outline"
 								size="icon"
@@ -127,12 +133,19 @@ export function NftMint(props: Props) {
 								<Plus className="h-4 w-4" />
 							</Button>
 						</div>
-						<div className="text-base pr-1 font-semibold dark:text-white">
-							total: {props.pricePerToken * quantity} {props.currencySymbol} ({.00042 * quantity} {props.currencySymbol} for mfers, tinyass unicorns, and based space punks holders)
+					</div>
+					<div className="flex items-center justify-center mb-4 text-center w-full">
+						<div className="text-base font-semibold dark:text-white">
+							<span style={{fontFamily: "monospace"}}>{props.pricePerToken * quantity} {props.currencySymbol}</span>
+						</div>
+					</div>
+					<div className="flex items-center justify-center mb-4 text-center w-full">
+						<div className="text-base font-semibold dark:text-white">
+							(<span style={{fontFamily: "monospace"}}>{.00042 * quantity} {props.currencySymbol}</span> for mfers, tinyass unicorns, and based space punks holders. feb. 17th snapshot)
 						</div>
 					</div>
 
-					<div className="flex items-center space-x-2 mb-4">
+					<div className="flex items-center justify-center space-x-2 mb-4 w-full">
 						<Switch
 							id="custom-address"
 							checked={useCustomAddress}
@@ -146,14 +159,14 @@ export function NftMint(props: Props) {
 						</Label>
 					</div>
 					{useCustomAddress && (
-						<div className="mb-4">
+						<div className="flex justify-center mb-4 w-full">
 							<Input
 								id="address-input"
 								type="text"
 								placeholder="Enter recipient address"
 								value={customAddress}
 								onChange={(e) => setCustomAddress(e.target.value)}
-								className="w-full"
+								className="w-full max-w-md"
 							/>
 						</div>
 					)}
