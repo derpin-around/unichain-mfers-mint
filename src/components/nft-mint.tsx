@@ -213,7 +213,7 @@ export function NftMint(props: Props) {
 							}
 							onError={(err) => toast.error(err.message)}
 						>
-							mint {quantity} nft{quantity > 1 ? "s" : ""}
+							mint {quantity} mfer{quantity > 1 ? "s" : ""}
 						</ClaimButton>
 					) : (
 						<ConnectButton
@@ -225,7 +225,7 @@ export function NftMint(props: Props) {
 			</Card>
 			{true && (
 				<Toast className="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-md">
-					successfully minted {quantity} nft{quantity > 1 ? "s" : ""}
+					successfully minted {quantity} mfer{quantity > 1 ? "s" : ""}
 					{useCustomAddress && customAddress ? ` to ${customAddress}` : ""}!
 				</Toast>
 			)}
